@@ -214,18 +214,24 @@ sem passar pelo LLM. Por isso ficam fora da tabela acima e são relatadas separa
 > - Mesmo acerto (82,61%), mas o 20b teve latência média menor (2,84 s × 4,46 s). A mediana foi 0,95 s no 20b e 4,95 s no 120b; o pior caso, 13,02 s no 20b e 11,45 s no 120b.
 > - Nenhum modelo recusou pergunta do tema, e os dois recusaram as 5 fora do escopo.
 
-### 5.3 TTS (10 respostas, [3] avaliadores, escala de 1 a 5)
+### 5.3 TTS (10 respostas, 3 avaliadores, escala de 1 a 5)
 Os avaliadores receberam um formulário com os 20 áudios (10 de cada motor) em ordem embaralhada e com códigos neutros,
 sem saber qual motor gerou cada um (avaliação cega). Cada áudio recebeu duas notas: naturalidade e clareza.
 | Motor | Naturalidade | Clareza | Tempo de síntese |
 |---|---|---|---|
-| Piper faber | [ ] ± [ ] | [ ] ± [ ] | 0,32 s |
-| edge-tts Francisca | [ ] ± [ ] | [ ] ± [ ] | 2,72 s |
+| Piper faber | 3,97 ± 0,61 | 5,00 ± 0,00 | 0,32 s |
+| edge-tts Francisca | 3,00 ± 0,64 | 4,90 ± 0,31 | 2,72 s |
 
-Tempo de síntese: média das 10 frases, em CPU (fonte: `testes/resultados/tts_tempos.csv`). O edge-tts depende da rede.
+Notas: média ± desvio padrão das 30 avaliações de cada motor (3 avaliadores × 10 áudios), fonte `testes/resultados/tts_resumo.csv`
+(notas individuais em `testes/tts/notas/` e `tts_notas_consolidadas.csv`). Tempo de síntese: média das 10 frases, em CPU
+(fonte: `testes/resultados/tts_tempos.csv`). O edge-tts depende da rede.
 
 > **Observações para o grupo (apagar antes de entregar)**
-> - As notas ainda não foram coletadas. Os campos de naturalidade e clareza ficam em branco até rodar `python testes/avaliar_tts.py resumir`.
+> - Os 3 avaliadores, separadamente, deram ao Piper uma naturalidade média maior que ao edge-tts: 4,20 × 2,70, 3,70 × 3,30 e 4,00 × 3,00.
+> - Clareza: o Piper recebeu 5 nas 30 avaliações. O edge-tts recebeu 4 três vezes (frases 3, 4 e 5) e 5 nas outras.
+> - Menor naturalidade: edge-tts na frase 4 (2,00) e na frase 8 (2,33). Maior: Piper na frase 1 (5,00) e na frase 4 (4,67).
+> - A mesma frase 4 teve a melhor nota no Piper (4,67) e a pior no edge-tts (2,00).
+> - A avaliação foi cega: os avaliadores não sabiam qual motor gerou cada áudio (gabarito em `testes/tts/gabarito_audios.csv`).
 > - O Piper foi, em média, 8,5 vezes mais rápido que o edge-tts (0,32 s × 2,72 s). O pior caso foi 0,79 s no Piper e 4,70 s no edge-tts.
 
 ### 5.4 Ponta a ponta (10 conversas, 3 turnos cada)
