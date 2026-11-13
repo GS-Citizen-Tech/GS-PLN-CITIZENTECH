@@ -1,0 +1,16 @@
+flowchart LR
+    MIC[Microfone ou upload] --> STT[STT<br/>faster-whisper small<br/>local]
+    STT -->|texto| GR{Guardrail<br/>regras}
+    STT -.->|áudio apagado| LIX[(descartado)]
+    GR -- nível 1 ou 2 --> FIX[Resposta fixa<br/>canal de emergência<br/>nada é guardado]
+    GR -- nível 0 ou 3 --> RAG[RAG<br/>base Quem Resolve<br/>MiniLM multilíngue]
+    MEM[(Memória<br/>últimos 6 turnos<br/>só em RAM)] --> RAG
+    MEM --> LLM
+    RAG -->|contexto + fontes| LLM[LLM<br/>gpt-oss-120b via Groq<br/>system prompt]
+    LLM --> MEM
+    LLM --> ADP[Adaptação para fala<br/>sem markdown, números<br/>e siglas por extenso]
+    FIX --> ADP
+    ADP --> TTS[TTS<br/>Piper pt_BR faber<br/>local]
+    TTS --> SPK[Alto-falante]
+    ADP --> UI[Interface Gradio<br/>transcrição, resposta,<br/>fontes e latência]
+    LAT[(Log de latência<br/>só tempos)] -.- UI

@@ -1,0 +1,25 @@
+digraph G {
+  rankdir=LR; bgcolor="white"; pad=0.3; nodesep=0.35; ranksep=0.45;
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11, color="#555555", fillcolor="#f2f2f2", margin="0.15,0.08"];
+  edge [fontname="Helvetica", fontsize=9, color="#555555"];
+  subgraph cluster_local { label="Roda local (Colab T4 ou PC)"; fontname="Helvetica-Bold"; fontsize=11; style="rounded,dashed"; color="#2e7d32";
+    MIC [label="Microfone\nou upload", fillcolor="#e3f2fd"];
+    STT [label="STT\nfaster-whisper small", fillcolor="#e8f5e9"];
+    GR  [label="Guardrail\n(regras, níveis 0-3)", fillcolor="#fff3e0"];
+    FIX [label="Resposta fixa\ncanal de emergência\nnada é guardado", fillcolor="#ffebee"];
+    RAG [label="RAG\nbase Quem Resolve\n(MiniLM multilíngue)", fillcolor="#e8f5e9"];
+    MEM [label="Memória\n6 turnos, só RAM", shape=cylinder, fillcolor="#ede7f6"];
+    ADP [label="Adaptação\npara fala", fillcolor="#e8f5e9"];
+    TTS [label="TTS\nPiper pt_BR faber", fillcolor="#e8f5e9"];
+    SPK [label="Alto-falante", fillcolor="#e3f2fd"];
+    UI  [label="Interface Gradio\ntranscrição, resposta,\nfontes, latência", fillcolor="#e3f2fd"];
+    DEL [label="Áudio apagado", shape=note, fillcolor="#fafafa"];
+  }
+  subgraph cluster_nuvem { label="Nuvem (só texto)"; fontname="Helvetica-Bold"; fontsize=11; style="rounded,dashed"; color="#1565c0";
+    LLM [label="LLM\ngpt-oss-120b via Groq\nsystem prompt", fillcolor="#e3f2fd"];
+  }
+  MIC -> STT; STT -> GR [label="texto"]; STT -> DEL [style=dashed];
+  GR -> FIX [label="nível 1 ou 2"]; GR -> RAG [label="nível 0 ou 3"];
+  RAG -> LLM [label="contexto + fontes"]; MEM -> LLM; LLM -> MEM [style=dashed];
+  LLM -> ADP; FIX -> ADP; ADP -> TTS -> SPK; ADP -> UI;
+}

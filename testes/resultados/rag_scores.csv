@@ -1,0 +1,31 @@
+id,tipo,pergunta,melhor_doc,melhor_score
+1,direta,Tem um buraco enorme na minha rua. Quem eu chamo?,Calçada quebrada,0.509
+2,direta,A lâmpada do poste da minha rua está apagada há uma semana.,Iluminação pública,0.568
+3,direta,Tem um fio caído no chão soltando faísca.,Calçada quebrada,0.451
+4,direta,Tem um cabo de internet pendurado na calçada. Quem resolve?,Fiação de telecomunicação solta,0.675
+5,direta,O poste da esquina está torto e parece que vai cair.,Poste danificado,0.437
+6,direta,Está vazando muita água no meio da calçada.,Vazamento de água na rua,0.554
+7,direta,Tem esgoto a céu aberto na minha rua.,Calçada quebrada,0.492
+8,direta,Estou sentindo um cheiro forte de gás na rua.,Cheiro de gás na rua,0.71
+9,direta,A calçada na frente da casa do vizinho está toda quebrada. De quem é a responsabilidade?,Calçada quebrada,0.768
+10,direta,Tem uma árvore com um galho quase caindo na rua.,Árvore com risco de queda ou precisando de poda,0.652
+11,direta,Um galho de árvore está encostado nos fios do poste.,Árvore encostada na fiação,0.646
+12,direta,O semáforo do cruzamento está apagado.,Iluminação pública,0.511
+13,direta,Jogaram um sofá velho e entulho na calçada.,Descarte irregular e entulho,0.403
+14,direta,O caminhão de lixo não passou ontem na minha rua.,Coleta de lixo não realizada,0.5
+15,direta,Tem muito saco de lixo acumulado na esquina.,Lixo acumulado em via pública,0.638
+16,direta,A boca de lobo da minha rua está entupida de lixo.,Boca de lobo ou bueiro entupido,0.582
+17,direta,A lixeira da praça está quebrada.,Calçada quebrada,0.694
+18,direta,Tem um carro abandonado na minha rua há meses.,Veículo abandonado,0.513
+19,direta,Minha rua está alagando com a chuva.,Cheiro de gás na rua,0.455
+20,direta,Estão cortando e roubando os fios do poste agora.,Vandalismo ou furto de fios,0.545
+21,continuacao,E como eu faço para registrar isso?,Calçada quebrada,0.534
+22,continuacao,E qual é o telefone deles?,Vazamento de água na rua,0.577
+23,continuacao,E quem fiscaliza essa empresa?,Coleta de lixo não realizada,0.626
+24,continuacao,E onde eu posso descartar entulho do jeito certo?,Calçada quebrada,0.582
+25,continuacao,E se ele estiver com fio solto?,Calçada quebrada,0.555
+26,fora_escopo,Me passa uma receita de bolo de cenoura?,Quem fiscaliza a coleta de lixo,0.063
+27,fora_escopo,Em quem eu devo votar para prefeito?,Calçada quebrada,0.357
+28,fora_escopo,Estou com dor de cabeça forte. Que remédio eu tomo?,Falta de luz em casa,0.143
+29,fora_escopo,Meu vizinho está me processando. O que eu faço?,Calçada quebrada,0.463
+30,fora_escopo,Qual foi o resultado do jogo do Corinthians ontem?,Árvore com risco de queda ou precisando de poda,0.163

@@ -1,0 +1,21 @@
+arquivo,falante,perfil_voz,ruido,referencia
+stt_01.wav,A,masculina 19 anos paulista,nao,Tem um buraco enorme na rua da minha casa
+stt_02.wav,A,,nao,A lâmpada do poste da esquina está apagada faz uma semana
+stt_03.wav,A,,nao,Quem eu chamo quando o caminhão de lixo não passa
+stt_04.wav,A,,nao,Tem um cabo de internet pendurado na calçada
+stt_05.wav,A,,nao,O semáforo do cruzamento está apagado desde ontem
+stt_06.wav,B,masculina 20 anos paulista,nao,Está vazando muita água no meio da calçada
+stt_07.wav,B,,nao,Tem esgoto a céu aberto na minha rua
+stt_08.wav,B,,nao,A boca de lobo da minha rua está entupida de lixo
+stt_09.wav,B,,nao,Jogaram um sofá velho e entulho na calçada
+stt_10.wav,B,,nao,Tem um carro abandonado na minha rua há meses
+stt_11.wav,C,feminina 50 anos paulista,nao,A calçada na frente da casa do vizinho está toda quebrada
+stt_12.wav,C,,nao,Tem um galho de árvore encostado nos fios do poste
+stt_13.wav,C,,nao,E qual é o telefone da Sabesp
+stt_14.wav,C,,nao,A lixeira da praça está quebrada
+stt_15.wav,C,,nao,E onde eu posso jogar o entulho do jeito certo
+stt_16.wav,A,,sim,O poste da minha rua está torto parece que vai cair
+stt_17.wav,B,,sim,Minha rua está alagando com a chuva
+stt_18.wav,C,,sim,Tem muito saco de lixo acumulado na esquina
+stt_19.wav,A,,sim,Como eu faço para registrar no SP156
+stt_20.wav,B,,sim,Estou sentindo um cheiro forte de gás na rua

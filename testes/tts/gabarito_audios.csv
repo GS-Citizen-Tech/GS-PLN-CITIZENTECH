@@ -1,0 +1,21 @@
+audio,motor,id_frase,texto_falado,codigo
+edge_10.mp3,edge,10,"A coleta de lixo é feita por uma empresa, e quem fiscaliza é a Prefeitura. Reclame no ésse pê cento e cinquenta e seis pelo um cinco meia.",A01
+piper_06.wav,piper,6,"Para descartar entulho do jeito certo, procure um Ecoponto da Prefeitura. O endereço mais perto você consulta no ésse pê cento e cinquenta e seis.",A02
+edge_05.mp3,edge,5,Semáforo apagado é com a cê é tê. Registre o defeito no ésse pê cento e cinquenta e seis e atravesse com atenção.,A03
+piper_05.wav,piper,5,Semáforo apagado é com a cê é tê. Registre o defeito no ésse pê cento e cinquenta e seis e atravesse com atenção.,A04
+piper_10.wav,piper,10,"A coleta de lixo é feita por uma empresa, e quem fiscaliza é a Prefeitura. Reclame no ésse pê cento e cinquenta e seis pelo um cinco meia.",A05
+edge_04.mp3,edge,4,"A calçada é responsabilidade do dono do imóvel. Se não resolver conversando, peça a fiscalização no ésse pê cento e cinquenta e seis.",A06
+edge_06.mp3,edge,6,"Para descartar entulho do jeito certo, procure um Ecoponto da Prefeitura. O endereço mais perto você consulta no ésse pê cento e cinquenta e seis.",A07
+edge_09.mp3,edge,9,"Se a rua estiver alagando e houver risco, ligue para a Defesa Civil no um nove nove. Não atravesse água corrente.",A08
+piper_07.wav,piper,7,"Afaste-se do local e não mexa em interruptores. Ligue para a emergência da Comgás no zero oitocentos, zero um um, zero um nove sete. Se tiver fogo, ligue um nove três.",A09
+edge_03.mp3,edge,3,"Vazamento de água na rua é com a Sabesp. A ligação é grátis: zero oitocentos, zero cinco cinco, zero um nove cinco. Também dá para mandar mensagem no WhatsApp um um, três três oito oito, oito zero zero zero.",A10
+edge_08.mp3,edge,8,"Desculpe, eu só consigo ajudar com problemas na rua e nos serviços da cidade. Para dor de cabeça forte, procure um médico ou a u bê ésse.",A11
+edge_01.mp3,edge,1,"Quem resolve buraco na rua é a Prefeitura, pela subprefeitura. Registre no ésse pê cento e cinquenta e seis, pelo telefone um cinco meia, pelo aplicativo ou pelo site, e anote o protocolo.",A12
+piper_02.wav,piper,2,"Primeiro, não chegue perto do fio. Ligue para a emergência da Enel no zero oitocentos, sete dois, sete dois, um nove meia.",A13
+edge_02.mp3,edge,2,"Primeiro, não chegue perto do fio. Ligue para a emergência da Enel no zero oitocentos, sete dois, sete dois, um nove meia.",A14
+piper_03.wav,piper,3,"Vazamento de água na rua é com a Sabesp. A ligação é grátis: zero oitocentos, zero cinco cinco, zero um nove cinco. Também dá para mandar mensagem no WhatsApp um um, três três oito oito, oito zero zero zero.",A15
+edge_07.mp3,edge,7,"Afaste-se do local e não mexa em interruptores. Ligue para a emergência da Comgás no zero oitocentos, zero um um, zero um nove sete. Se tiver fogo, ligue um nove três.",A16
+piper_08.wav,piper,8,"Desculpe, eu só consigo ajudar com problemas na rua e nos serviços da cidade. Para dor de cabeça forte, procure um médico ou a u bê ésse.",A17
+piper_09.wav,piper,9,"Se a rua estiver alagando e houver risco, ligue para a Defesa Civil no um nove nove. Não atravesse água corrente.",A18
+piper_01.wav,piper,1,"Quem resolve buraco na rua é a Prefeitura, pela subprefeitura. Registre no ésse pê cento e cinquenta e seis, pelo telefone um cinco meia, pelo aplicativo ou pelo site, e anote o protocolo.",A19
+piper_04.wav,piper,4,"A calçada é responsabilidade do dono do imóvel. Se não resolver conversando, peça a fiscalização no ésse pê cento e cinquenta e seis.",A20

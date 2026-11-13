@@ -1,0 +1,12 @@
+.env
+__pycache__/
+modelos/
+logs/
+# Os áudios de teste DEVEM ir para o repositório (entregável 3 do enunciado).
+.venv/
+.pytest_cache/
+# Documentos internos do grupo (não fazem parte da entrega)
+GUIA_EXECUCAO.md
+PRD*.md
+CONTRATOS*.md
+relatorio/termos_assinados/

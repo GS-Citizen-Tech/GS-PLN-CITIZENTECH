@@ -1,0 +1,31 @@
+conversa,turno,arquivo_audio,texto_roteiro
+1,1,c01_t1.wav,Oi. Tem um buraco enorme na minha rua.
+1,2,c01_t2.wav,E como eu faço para registrar isso?
+1,3,c01_t3.wav,Você sabe me passar uma receita de bolo?
+2,1,c02_t1.wav,Está vazando muita água na calçada.
+2,2,c02_t2.wav,E qual é o telefone deles?
+2,3,c02_t3.wav,Funciona de madrugada também?
+3,1,c03_t1.wav,O poste da minha rua está torto.
+3,2,c03_t2.wav,E se ele estiver com fio solto?
+3,3,c03_t3.wav,Obrigada. E a lâmpada desse poste também está apagada.
+4,1,c04_t1.wav,Jogaram entulho e um sofá velho na minha calçada.
+4,2,c04_t2.wav,E onde eu posso descartar entulho do jeito certo?
+4,3,c04_t3.wav,Preciso pagar alguma coisa?
+5,1,c05_t1.wav,O caminhão de lixo não passou ontem.
+5,2,c05_t2.wav,E quem fiscaliza essa empresa?
+5,3,c05_t3.wav,Em quem eu voto para prefeito?
+6,1,c06_t1.wav,A calçada do vizinho está toda quebrada.
+6,2,c06_t2.wav,E se ele não quiser arrumar?
+6,3,c06_t3.wav,Como eu falo com a Prefeitura?
+7,1,c07_t1.wav,Tem um galho de árvore encostado nos fios.
+7,2,c07_t2.wav,Quem faz a poda?
+7,3,c07_t3.wav,E o telefone da Enel?
+8,1,c08_t1.wav,A boca de lobo da minha rua está entupida.
+8,2,c08_t2.wav,Agora começou a alagar a rua.
+8,3,c08_t3.wav,Qual era o número mesmo?
+9,1,c09_t1.wav,O semáforo do cruzamento está apagado.
+9,2,c09_t2.wav,Quem cuida disso?
+9,3,c09_t3.wav,Estou com dor de cabeça. Que remédio eu tomo?
+10,1,c10_t1.wav,Tem um carro abandonado na minha rua há meses.
+10,2,c10_t2.wav,O que eu preciso informar?
+10,3,c10_t3.wav,E se for uma moto?

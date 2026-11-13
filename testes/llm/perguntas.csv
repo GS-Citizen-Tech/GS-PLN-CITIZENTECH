@@ -1,0 +1,31 @@
+id,tipo,contexto,pergunta,resposta_esperada,palavras_chave
+1,direta,,Tem um buraco enorme na minha rua. Quem eu chamo?,Prefeitura (subprefeitura); registrar no SP156 pelo 156.,156;prefeitura|subprefeitura
+2,direta,,A lâmpada do poste da minha rua está apagada há uma semana.,Prefeitura; pedir reparo no SP156.,156;prefeitura
+3,direta,,Tem um fio caído no chão soltando faísca.,Não chegar perto; emergência da Enel 0800 72 72 196.,enel;196;perto|afast|toque|toc
+4,direta,,Tem um cabo de internet pendurado na calçada. Quem resolve?,Operadora dona do cabo; Prefeitura fiscaliza pelo SP156.,operadora;156
+5,direta,,O poste da esquina está torto e parece que vai cair.,Enel; 0800 72 72 120 ou emergência 0800 72 72 196 se houver risco.,enel;0800
+6,direta,,Está vazando muita água no meio da calçada.,Sabesp; 0800 055 0195 ou WhatsApp.,sabesp;0195|whatsapp
+7,direta,,Tem esgoto a céu aberto na minha rua.,Sabesp; 0800 055 0195.,sabesp
+8,direta,,Estou sentindo um cheiro forte de gás na rua.,Afastar-se; Comgás 0800 011 0197; fogo 193.,comgas|comgás;193|bombeiro
+9,direta,,A calçada na frente da casa do vizinho está toda quebrada. De quem é a responsabilidade?,Proprietário do imóvel; subprefeitura fiscaliza pelo SP156.,proprietario|proprietário|dono;156
+10,direta,,Tem uma árvore com um galho quase caindo na rua.,Defesa Civil 199 se risco iminente; poda pelo SP156.,199|defesa civil;156|subprefeitura
+11,direta,,Um galho de árvore está encostado nos fios do poste.,Enel para a parte elétrica; subprefeitura (SP156) para a poda.,enel;156|subprefeitura|poda
+12,direta,,O semáforo do cruzamento está apagado.,CET; registrar no SP156.,cet;156
+13,direta,,Jogaram um sofá velho e entulho na calçada.,Subprefeitura; pedir remoção no SP156; descarte correto no Ecoponto.,156
+14,direta,,O caminhão de lixo não passou ontem na minha rua.,Concessionária de coleta; reclamar no SP156.,156;coleta|concession|empresa
+15,direta,,Tem muito saco de lixo acumulado na esquina.,Subprefeitura; pedir limpeza no SP156.,156
+16,direta,,A boca de lobo da minha rua está entupida de lixo.,Subprefeitura pelo SP156; se alagando com risco 199.,156
+17,direta,,A lixeira da praça está quebrada.,Prefeitura; SP156.,156
+18,direta,,Tem um carro abandonado na minha rua há meses.,Prefeitura; SP156 com endereço e placa.,156
+19,direta,,Minha rua está alagando com a chuva.,Defesa Civil 199 se houver risco; SP156 para drenagem.,199|defesa civil
+20,direta,,Estão cortando e roubando os fios do poste agora.,Ficar em lugar seguro; Polícia Militar 190.,190|policia|polícia
+21,continuacao,Tem um buraco enorme na minha rua.,E como eu faço para registrar isso?,SP156: telefone 156; aplicativo ou site; anotar protocolo.,156;aplicativo|app|site|telefone
+22,continuacao,Está vazando água na calçada da minha rua.,E qual é o telefone deles?,Sabesp 0800 055 0195.,0195
+23,continuacao,O caminhão de lixo não passou na minha rua.,E quem fiscaliza essa empresa?,A Prefeitura (SP Regula).,prefeitura|regula
+24,continuacao,Jogaram entulho na calçada da minha rua.,E onde eu posso descartar entulho do jeito certo?,Ecoponto da Prefeitura.,ecoponto
+25,continuacao,O poste da minha rua está torto.,E se ele estiver com fio solto?,Não chegar perto; emergência da Enel 0800 72 72 196.,196;enel|perto|afast
+26,fora_escopo,,Me passa uma receita de bolo de cenoura?,Recusa gentil; só ajuda com problemas na rua.,
+27,fora_escopo,,Em quem eu devo votar para prefeito?,Recusa neutra; só ajuda com zeladoria.,
+28,fora_escopo,,Estou com dor de cabeça forte. Que remédio eu tomo?,Recusa; procurar médico/UBS; urgência SAMU 192.,medico|médico|ubs|192|saude|saúde
+29,fora_escopo,,Meu vizinho está me processando. O que eu faço?,Recusa; procurar advogado ou Defensoria Pública.,advogad|defensoria
+30,fora_escopo,,Qual foi o resultado do jogo do Corinthians ontem?,Recusa; só ajuda com problemas na rua.,

@@ -1,0 +1,41 @@
+modelo,arquivo,falante,ruido,referencia,transcricao,wer,tempo_s,duracao_audio_s,rtf
+small,stt_01.wav,A,nao,Tem um buraco enorme na rua da minha casa,Tenho um buraco enorme na rua da minha casa.,0.1111111111111111,2.1280526000000464,3.2,0.6650164375000145
+small,stt_02.wav,A,nao,A lâmpada do poste da esquina está apagada faz uma semana,A lâmpada do poste da esquina está apagada faz uma semana.,0.0,2.2644216999997298,4.352,0.5203174862131732
+small,stt_03.wav,A,nao,Quem eu chamo quando o caminhão de lixo não passa,Quem eu chamo quando o caminhão de lixo não passa?,0.0,2.1890478000004805,3.1573125,0.6933263020370902
+small,stt_04.wav,A,nao,Tem um cabo de internet pendurado na calçada,Tem um cabo de internet pendurado aqui na calçada.,0.125,2.172578699999576,3.0506875,0.7121603572963721
+small,stt_05.wav,A,nao,O semáforo do cruzamento está apagado desde ontem,O semáforo do cruzamento está apagado desde ontem.,0.0,2.2311200000003737,2.944,0.7578532608696922
+small,stt_06.wav,B,nao,Está vazando muita água no meio da calçada,Está vazando muita água no meio da calçada.,0.0,2.2300679999998465,4.416,0.5049972826086608
+small,stt_07.wav,B,nao,Tem esgoto a céu aberto na minha rua,Tem esgoto a céu aberto na minha rua.,0.0,2.1710139000006166,3.7973125,0.5717237914974385
+small,stt_08.wav,B,nao,A boca de lobo da minha rua está entupida de lixo,A boca de lobo da minha rua está entupida de lixo.,0.0,2.313256100000217,4.5866875,0.5043413356589515
+small,stt_09.wav,B,nao,Jogaram um sofá velho e entulho na calçada,Jogaram um sofá velho e entulho na calçada.,0.0,2.391194699999687,4.4586875,0.5363001331669213
+small,stt_10.wav,B,nao,Tem um carro abandonado na minha rua há meses,Tenho um carro abandonado na minha rua há meses.,0.1111111111111111,2.337786699999924,4.3093125,0.5424964422979127
+small,stt_11.wav,C,nao,A calçada na frente da casa do vizinho está toda quebrada,A calçada na frente da casa do vizinho está toda quebrada.,0.0,2.550856400000157,4.8,0.5314284166666994
+small,stt_12.wav,C,nao,Tem um galho de árvore encostado nos fios do poste,Tem um galho de árvore encostado nos fios do poste.,0.0,2.4987128000002485,4.0106875,0.623013585576101
+small,stt_13.wav,C,nao,E qual é o telefone da Sabesp,E qual é o telefone da Sabesp?,0.0,3.1464764000002106,2.368,1.3287484797298188
+small,stt_14.wav,C,nao,A lixeira da praça está quebrada,A lixeira da praça está quebrada.,0.0,2.198660899999595,2.88,0.7634239236109706
+small,stt_15.wav,C,nao,E onde eu posso jogar o entulho do jeito certo,E onde eu posso jogar o entulho do jeito certo?,0.0,2.295544499999778,3.904,0.5879980788933857
+small,stt_16.wav,A,sim,O poste da minha rua está torto parece que vai cair,"O poste da minha rua está torto, parece que vai cair.",0.0,2.2793665999997756,3.7973125,0.6002578402488011
+small,stt_17.wav,B,sim,Minha rua está alagando com a chuva,Minha rua está lá dentro do nosso clínico.,0.7142857142857143,2.607157699999334,3.968,0.6570457913304774
+small,stt_18.wav,C,sim,Tem muito saco de lixo acumulado na esquina,Tem muito saco de lixo acubulado na esquina.,0.125,2.6506109000001743,4.16,0.6371660817308111
+small,stt_19.wav,A,sim,Como eu faço para registrar no SP156,Como eu faço para registrar no SP156?,0.0,2.1065977999996903,5.1413125,0.4097393029503051
+small,stt_20.wav,B,sim,Estou sentindo um cheiro forte de gás na rua,Estou sentindo um cheiro forte de gás na via.,0.1111111111111111,2.1550827000000936,4.8426875,0.4450179161880864
+medium,stt_01.wav,A,nao,Tem um buraco enorme na rua da minha casa,Tem um buraco enorme na rua da minha casa.,0.0,5.9133973000007245,3.2,1.8479366562502264
+medium,stt_02.wav,A,nao,A lâmpada do poste da esquina está apagada faz uma semana,A lâmpada do poste da esquina está apagada faz uma semana.,0.0,6.4131711,4.352,1.4736146829044117
+medium,stt_03.wav,A,nao,Quem eu chamo quando o caminhão de lixo não passa,Quem eu chamo quando o caminhão de lixo não passa?,0.0,6.24589350000042,3.1573125,1.9782310113428494
+medium,stt_04.wav,A,nao,Tem um cabo de internet pendurado na calçada,Tem um cabo de internet pendurado aqui na calçada.,0.125,6.136936599999899,3.0506875,2.0116569134006346
+medium,stt_05.wav,A,nao,O semáforo do cruzamento está apagado desde ontem,O semáforo do cruzamento está apagado desde ontem.,0.0,6.309255099999973,2.944,2.1430893682065126
+medium,stt_06.wav,B,nao,Está vazando muita água no meio da calçada,Está vazando muita água no meio da calçada.,0.0,5.974916600000142,4.416,1.353015534420322
+medium,stt_07.wav,B,nao,Tem esgoto a céu aberto na minha rua,Tem esgoto a céu aberto na minha rua.,0.0,6.306693099999393,3.7973125,1.6608306795923151
+medium,stt_08.wav,B,nao,A boca de lobo da minha rua está entupida de lixo,A boca de lobo da minha rua está entupida de lixo.,0.0,6.295230200000333,4.5866875,1.3725003501983366
+medium,stt_09.wav,B,nao,Jogaram um sofá velho e entulho na calçada,Jogaram um sofá velho e entulho na calçada.,0.0,6.4979481999998825,4.4586875,1.4573679361919585
+medium,stt_10.wav,B,nao,Tem um carro abandonado na minha rua há meses,Tenho um carro abandonado na minha rua há meses.,0.1111111111111111,6.090049299999919,4.3093125,1.413229906162507
+medium,stt_11.wav,C,nao,A calçada na frente da casa do vizinho está toda quebrada,A calçada na frente da casa do vizinho está toda quebrada.,0.0,6.573813099999825,4.8,1.369544395833297
+medium,stt_12.wav,C,nao,Tem um galho de árvore encostado nos fios do poste,Tem um galho de árvore encostado nos fios do poste.,0.0,6.5898416,4.0106875,1.6430703214847826
+medium,stt_13.wav,C,nao,E qual é o telefone da Sabesp,E qual é o telefone da Sabesp?,0.0,5.787154599999667,2.368,2.443899746621481
+medium,stt_14.wav,C,nao,A lixeira da praça está quebrada,A lixeira da praça está quebrada.,0.0,5.867460899999969,2.88,2.0373128124999895
+medium,stt_15.wav,C,nao,E onde eu posso jogar o entulho do jeito certo,E onde eu posso jogar o entulho do jeito certo?,0.0,5.847793900000397,3.904,1.4978980276640361
+medium,stt_16.wav,A,sim,O poste da minha rua está torto parece que vai cair,"O poste da minha rua está torto, parece que vai cair.",0.0,6.010587200000373,3.7973125,1.5828529255889192
+medium,stt_17.wav,B,sim,Minha rua está alagando com a chuva,Minha rua está ladrando com as pinzas.,0.42857142857142855,6.078932100000202,3.968,1.5319889364919863
+medium,stt_18.wav,C,sim,Tem muito saco de lixo acumulado na esquina,Tem muito saco de lixo acumulado na esquina.,0.0,5.959234199999628,4.16,1.4325082211537568
+medium,stt_19.wav,A,sim,Como eu faço para registrar no SP156,Como eu faço para registrar no SP156?,0.0,5.7862708000002385,5.1413125,1.1254462357618291
+medium,stt_20.wav,B,sim,Estou sentindo um cheiro forte de gás na rua,Estou sentindo um cheiro forte de gás na rua.,0.0,6.004235299999891,4.8426875,1.239856030355023
