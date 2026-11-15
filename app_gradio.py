@@ -136,7 +136,10 @@ with gr.Blocks(title="Quem Resolve? Assistente de voz", css=CSS, delete_cache=(3
         memoria = gr.State(None)
         with gr.Row():
             with gr.Column(scale=1):
+                # Sem a onda animada durante a gravação: em alguns navegadores/placas de vídeo
+                # ela congela a página e a captura do microfone para (gravação sai em silêncio).
                 entrada = gr.Audio(sources=["microphone", "upload"], type="filepath",
+                                   waveform_options=gr.WaveformOptions(show_recording_waveform=False),
                                    label="Aperte o microfone para falar ou envie um arquivo de áudio")
                 btn_enviar = gr.Button("Enviar áudio", variant="primary")
                 texto = gr.Textbox(label="Ou escreva aqui (opcional)", placeholder="Ex.: tem um buraco na minha rua")
