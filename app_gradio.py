@@ -93,12 +93,44 @@ def _sem_consentimento(caminho=None):
     raise gr.Error("Para usar o assistente, primeiro aceite o aviso de privacidade.")
 
 
+def nivel_audio(caminho) -> dict | None:
+    """Mede só números do sinal (duração, volume, % de silêncio), sem guardar voz nem texto.
+
+    Serve para avisar quando o microfone escolhido não está captando nada.
+    """
+    try:
+        import av
+        import numpy as np
+
+        partes, taxa = [], 16000
+        with av.open(caminho) as c:
+            reamostrar = av.AudioResampler(format="flt", layout="mono", rate=taxa)
+            for quadro in c.decode(audio=0):
+                for q in reamostrar.resample(quadro):
+                    partes.append(q.to_ndarray().ravel())
+        x = np.concatenate(partes) if partes else np.zeros(1, dtype=np.float32)
+        rms = float(np.sqrt(np.mean(x ** 2)))
+        return {"duracao_s": round(len(x) / taxa, 2),
+                "volume_dbfs": round(float(20 * np.log10(rms)) if rms > 0 else -120.0, 1),
+                "silencio_%": round(100 * float(np.mean(np.abs(x) < 1e-4)), 1)}
+    except Exception:  # noqa: BLE001 - a medição nunca pode impedir a resposta
+        return None
+
+
+AVISO_MIC_MUDO = ("A gravação chegou sem som. Confira o microfone escolhido no botão ao lado de "
+                  "\"Gravar\" e se ele não está mudo no Windows.")
+
+
 def responder_audio(caminho, historico, memoria, consentiu):
     if not consentiu:
         _sem_consentimento(caminho)
-    if not caminho:
-        return gr.update(), historico, None, gr.update(), gr.update(), memoria
+    if not caminho or not os.path.exists(caminho):  # nada gravado, ou áudio já processado e apagado
+        return gr.update(), historico, gr.update(), gr.update(), gr.update(), memoria
     memoria = memoria or nova_memoria()
+    nivel = nivel_audio(caminho)
+    print(f"[áudio recebido] {nivel}", flush=True)  # só números, sem voz e sem texto
+    if nivel and (nivel["volume_dbfs"] < -50 or nivel["silencio_%"] > 85):
+        gr.Warning(AVISO_MIC_MUDO)
     r = ASSISTENTE.processar_audio(caminho, memoria, apagar_audio=True)
     h, audio, fontes, lat = _turno(r, historico)
     return None, h, audio, fontes, lat, memoria
@@ -140,8 +172,8 @@ with gr.Blocks(title="Quem Resolve? Assistente de voz", css=CSS, delete_cache=(3
                 # ela congela a página e a captura do microfone para (gravação sai em silêncio).
                 entrada = gr.Audio(sources=["microphone", "upload"], type="filepath",
                                    waveform_options=gr.WaveformOptions(show_recording_waveform=False),
-                                   label="Aperte o microfone para falar ou envie um arquivo de áudio")
-                btn_enviar = gr.Button("Enviar áudio", variant="primary")
+                                   label="1) Escolha o microfone no botão à direita · 2) Aperte Gravar, fale e pare · ou envie um arquivo de áudio")
+                status = gr.Markdown("Ao parar a gravação (ou enviar um arquivo), a resposta chega sozinha. Não precisa apertar mais nada.")
                 texto = gr.Textbox(label="Ou escreva aqui (opcional)", placeholder="Ex.: tem um buraco na minha rua")
                 saida_audio = gr.Audio(label="Resposta falada", autoplay=True, type="filepath", interactive=False)
                 btn_limpar = gr.Button("Nova conversa (apaga o histórico)")
@@ -153,8 +185,13 @@ with gr.Blocks(title="Quem Resolve? Assistente de voz", css=CSS, delete_cache=(3
     btn_ouvir.click(ouvir_aviso, None, audio_aviso, **SEM_API)
     btn_aceitar.click(aceitar, None, [tela_consentimento, tela_principal, consentiu], **SEM_API)
     saidas = [entrada, chat, saida_audio, fontes, latencia, memoria]
-    entrada.stop_recording(responder_audio, [entrada, chat, memoria, consentiu], saidas, **SEM_API)
-    btn_enviar.click(responder_audio, [entrada, chat, memoria, consentiu], saidas, **SEM_API)
+    entradas_audio = [entrada, chat, memoria, consentiu]
+    # Gravação pelo microfone dispara stop_recording; arquivo enviado dispara upload. Cada caminho processa uma vez.
+    for evento in (entrada.stop_recording, entrada.upload):
+        evento(lambda: "⏳ **Processando seu áudio…** a resposta aparece ao lado em alguns segundos.",
+               None, status, queue=False, **SEM_API
+               ).then(responder_audio, entradas_audio, saidas, **SEM_API
+               ).then(lambda: "✅ Pronto. Para falar de novo, aperte **Gravar**.", None, status, **SEM_API)
     texto.submit(responder_texto, [texto, chat, memoria, consentiu],
                  [texto, chat, saida_audio, fontes, latencia, memoria], **SEM_API)
     btn_limpar.click(limpar, None, [chat, saida_audio, fontes, latencia, memoria], **SEM_API)
