@@ -4,7 +4,9 @@ Assistente de voz em português que **escuta** o morador de São Paulo, **entend
 e **responde falando** quem resolve e como acionar o canal certo, sem precisar digitar.
 É o módulo de voz (RF60 a RF67) do produto *Quem Resolve?*, desafio CitizenTech.
 
-**Integrantes:** Matheus Mikio Tutume Lourenço (RM 561864) · Ian Nobres de Azevedo (RM 561861) · Turma 2TIA
+**Integrantes:** Matheus Mikio Tutume Lourenço (RM 561864) · Ian Nobres de Azevedo (RM 561861) · Turma 2TIAPY
+
+**Vídeo de demonstração (conversa real por voz):** https://youtu.be/Lbp7k8t4Fzs
 
 > Persona: **Dona Cida, 64 anos, Zona Leste**. Usa WhatsApp, mas trava em sites e formulários.
 > ODS 11 (Cidades e comunidades sustentáveis), com apoio dos ODS 10 e 16.

@@ -1,6 +1,6 @@
 # Quem Resolve? · Assistente de voz para zeladoria urbana
 **Global Solution 2026.2 · NLP & Chatbots · Desafio CitizenTech**
-Integrantes: Matheus Mikio Tutume Lourenço (RM 561864) · Ian Nobres de Azevedo (RM 561861) · Turma 2TIA · Repositório: https://github.com/GS-Citizen-Tech/GS-PLN-CITIZENTECH
+Integrantes: Matheus Mikio Tutume Lourenço (RM 561864) · Ian Nobres de Azevedo (RM 561861) · Turma 2TIAPY · Repositório: https://github.com/GS-Citizen-Tech/GS-PLN-CITIZENTECH · Vídeo: https://youtu.be/Lbp7k8t4Fzs
 
 > Rascunho. Trechos entre colchetes **[ ]** devem ser preenchidos com os resultados reais dos testes.
 
