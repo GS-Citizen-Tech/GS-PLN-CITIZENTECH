@@ -115,6 +115,6 @@ quem-resolve-voz/
 ├── pipelines/voz/           módulos do assistente
 ├── base_conhecimento/       quem_resolve.json + faq.md (com fontes)
 ├── testes/                  scripts, perguntas, roteiros, áudios e resultados
-├── relatorio/               rascunho do relatório e termo de consentimento
+├── relatorio/               relatório (RELATORIO.md e RELATORIO.pdf) e modelo do termo de consentimento
 └── docs/arquitetura.mermaid
 ```

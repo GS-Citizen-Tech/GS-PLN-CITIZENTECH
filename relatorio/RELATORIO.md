@@ -1,8 +1,6 @@
 # Quem Resolve? · Assistente de voz para zeladoria urbana
-**Global Solution 2026.2 · NLP & Chatbots · Desafio CitizenTech**
+**Global Solution 2026.2 · NLP & Chatbots · Desafio CitizenTech**\
 Integrantes: Matheus Mikio Tutume Lourenço (RM 561864) · Ian Nobres de Azevedo (RM 561861) · Turma 2TIAPY · Repositório: https://github.com/GS-Citizen-Tech/GS-PLN-CITIZENTECH · Vídeo: https://youtu.be/Lbp7k8t4Fzs
-
-> Rascunho. Trechos entre colchetes **[ ]** devem ser preenchidos com os resultados reais dos testes.
 
 ---
 
@@ -112,15 +110,7 @@ Fonte: `testes/resultados/stt_resumo.csv` (20 áudios, CPU, `int8`, duração m�
 | small | 5,52% | 2,24% | 14,89% | 2,35 s | 0,63 |
 | medium | 2,76% | 1,49% | 6,38% | 6,13 s | 1,63 |
 
-> **Observações para o grupo (apagar antes de entregar)**
-> - O `medium` teve metade do WER geral do `small` (2,76% × 5,52%), mas levou 2,6 vezes mais tempo por áudio (6,13 s × 2,35 s).
-> - Em CPU, o `medium` tem RTF 1,63: demora mais para transcrever do que o próprio áudio dura. O `small` fica abaixo de 1 (0,63).
-> - A maior diferença entre os modelos aparece nos áudios com ruído: 14,89% (small) × 6,38% (medium).
-> - Só o tempo do `medium` (6,13 s) já passa da meta de 6 s do PRD para o turno inteiro.
-> - Os tempos são de CPU. Numa GPU os dois modelos seriam mais rápidos, e a diferença de tempo entre eles pode mudar.
-
-**Decisão:** [ex.: o `small` foi mantido porque o `medium` reduziu o WER em apenas X pontos e dobrou o tempo de transcrição,
-o que empurraria a latência total acima de 6 s. / o `medium` foi escolhido porque o ganho com ruído foi grande.]
+**Decisão:** Em qualidade, o medium é claramente melhor: o WER geral cai pela metade (2,76% contra 5,52%), e o ganho é ainda maior nos áudios com ruído (6,38% contra 14,89%). Sem ruído, a diferença é pequena (1,49% contra 2,24%). No entanto, em CPU, o medium é 2,6 vezes mais lento (6,13 s contra 2,35 s por áudio) e tem RTF de 1,63 — ou seja, leva mais tempo para transcrever do que o próprio áudio dura. O small tem RTF de 0,63. Para a meta de 6 s por turno, só o STT do medium (6,13 s) já esgota o orçamento inteiro antes de o LLM e o TTS sequer começarem; com o small, o turno completo fica em 3,03 s. Por isso o small foi escolhido: em CPU, é a única opção que mantém a conversa fluida. O medium só compensaria com GPU ou se o uso principal fosse em ambiente barulhento.
 
 Também foram comparados os LLMs gpt-oss-20b × gpt-oss-120b (seção 5.2) e os TTS Piper × edge-tts (seção 5.3).
 
@@ -146,10 +136,7 @@ cobertura de pelo menos 95%.
 
 Limiar adotado: 0,40 (o valor inicial era 0,35). Com 0,40 a cobertura no tema continua em 100% e o vazamento fora do
 escopo cai de 40% para 20% (fonte: `testes/resultados/rag_calibracao.csv`).
-
-> **Observações para o grupo (apagar antes de entregar)**
-> - Duas perguntas fora do escopo ficaram com score alto: a 29 (0,46, melhor documento "Calçada quebrada") e a 27 (0,36). É a 29 que continua "vazando" com o limiar 0,40.
-> - Na pergunta 7 ("Tem esgoto a céu aberto na minha rua"), o documento mais parecido foi "Calçada quebrada" (0,49), embora a base tenha uma categoria "Esgoto na rua" (veja a seção 5.2). O limiar só evita contexto irrelevante; quem recusa perguntas fora do tema é o system prompt.
+O limiar só evita contexto irrelevante; quem recusa perguntas fora do tema é o system prompt.
 
 ## 5. Resultados
 
@@ -170,14 +157,6 @@ Piores transcrições (fonte: `stt_detalhado.csv`):
 | stt_17 (B, ruído) | medium | Minha rua está alagando com a chuva | Minha rua está ladrando com as pinzas. | 42,86% |
 | stt_04 (A) | small e medium | Tem um cabo de internet pendurado na calçada | Tem um cabo de internet pendurado aqui na calçada. | 12,50% |
 | stt_18 (C, ruído) | small | Tem muito saco de lixo acumulado na esquina | Tem muito saco de lixo acubulado na esquina. | 12,50% |
-
-> **Observações para o grupo (apagar antes de entregar)**
-> - Maior WER: stt_17, com ruído (71,43% no small e 42,86% no medium). Foi o único áudio em que nenhum dos dois modelos entendeu o sentido da frase.
-> - 14 dos 20 áudios tiveram WER 0 no small e 17 dos 20 no medium.
-> - No stt_04 o falante disse "aqui", que não está no roteiro. Os dois modelos transcreveram certo, mas o WER conta como erro, porque a referência é o roteiro.
-> - O small trocou "Tem" por "Tenho" no stt_01 e no stt_10; o medium acertou o stt_01 e errou o stt_10 do mesmo jeito.
-> - No stt_20 (gás, com ruído), o small escreveu "via" no lugar de "rua"; o medium acertou.
-> - As palavras do domínio (SP156, Sabesp, boca de lobo, entulho) foram transcritas certo pelos dois modelos.
 
 ### 5.2 LLM (30 perguntas)
 | Modelo | Acerto no tema (23) | Acerto em continuações (5) | Recusas adequadas (5) | Recusas indevidas | Latência média |
@@ -204,15 +183,16 @@ sem passar pelo LLM. Por isso ficam fora da tabela acima e são relatadas separa
 |---|---|---|
 | Nível 1 | 8, 20 | 2 de 2 |
 
-[comentar os erros encontrados]
+Só a pergunta 17 (120b) ficou em dúvida. As palavras-chave marcaram sim, e o juiz marcou não. A pergunta era “A lixeira da praça está quebrada.”, e a resposta esperada era “Prefeitura; SP156”. O modelo respondeu que não sabia quem cuidava disso, mas que dava para pedir limpeza ou reparo pelo SP156, ligando para 156. Na revisão humana, a resposta passou, mesmo sem citar a Prefeitura, porque mostra o caminho certo. Com isso, os dois modelos acertaram 19 de 23 no tema, ou seja, 82,61%.
 
-> **Observações para o grupo (apagar antes de entregar)**
-> - **Revisão manual:** só a pergunta 17 (120b) teve discordância entre palavras-chave (sim) e juiz (não). Pergunta: "A lixeira da praça está quebrada." Resposta esperada: "Prefeitura; SP156". Resposta obtida: "Não sei exatamente quem cuida disso, mas você pode solicitar a limpeza ou reparo pelo SP156, ligando para 156." A revisão humana marcou **sim** (não nomeia a Prefeitura, mas indica o caminho certo). Com isso, os dois modelos ficaram com 82,61% no tema (19 de 23).
-> - Os dois modelos erraram as mesmas perguntas: 3, 7, 19 e 25.
-> - 3 (fio caído soltando faísca), 19 (alagamento) e 25 (continuação: poste com fio solto) disparam o nível 3 do guardrail. O aviso fixo, que vem antes do texto do LLM, já traz o número certo (Enel ou Defesa Civil). Mas o texto do LLM, que é o único corrigido, diz "não sei" e manda para o SP156.
-> - 7 (esgoto a céu aberto): os dois modelos responderam "não sei" e indicaram o SP156, sem citar a Sabesp. A base tem a categoria "Esgoto na rua", mas o RAG recuperou "Calçada quebrada" como primeiro documento (score 0,49 em `rag_scores.csv`).
-> - Mesmo acerto (82,61%), mas o 20b teve latência média menor (2,84 s × 4,46 s). A mediana foi 0,95 s no 20b e 4,95 s no 120b; o pior caso, 13,02 s no 20b e 11,45 s no 120b.
-> - Nenhum modelo recusou pergunta do tema, e os dois recusaram as 5 fora do escopo.
+Os dois erraram as mesmas perguntas: 3, 7, 19 e 25.
+
+3, 19 e 25: fio caído soltando faísca, alagamento e poste com fio solto. Esses casos acionam o guardrail de nível 3, e o aviso fixo, que aparece antes da resposta do LLM, já traz o número certo (Enel ou Defesa Civil). Só que o texto do LLM, que é a única parte corrigida, diz “não sei” e manda para o SP156. É uma falha de integração entre guardrail e LLM: o aviso fixo dá a informação certa, mas o LLM a contradiz logo em seguida e confunde o cidadão. Uma melhoria possível seria, quando o guardrail dispara o nível 3, instruir o LLM a complementar o aviso em vez de respondê-lo de forma independente.
+7: esgoto a céu aberto. Os dois modelos disseram não saber e indicaram o SP156, sem citar a Sabesp. É uma falha da busca do RAG, não da base: a categoria “Esgoto na rua” existe, mas o RAG trouxe “Calçada quebrada” como primeiro documento (score de 0,49 em rag_scores.csv). Uma melhoria possível seria usar busca híbrida, combinando embeddings com palavras-chave, ou ampliar os exemplos de frases na categoria “Esgoto na rua”.
+
+A acurácia foi igual, mas o 20b foi mais rápido: 2,84 s de média contra 4,46 s, e mediana de 0,95 s contra 4,95 s. No pior caso, o 20b levou 13,02 s e o 120b, 11,45 s. O sistema usa o 120b porque era o maior modelo disponível no provedor e foi definido como padrão antes dos testes. O teste não revelou nenhum ganho de acerto que justifique essa escolha: as duas versões erraram exatamente as mesmas perguntas. Diante disso, o 20b é uma troca razoável — mesma acurácia, latência menor. Mantemos o 120b por ora como opção conservadora, mas reconhecemos que os dados não sustentam a escolha; uma reavaliação com mais perguntas seria necessária para confirmar se há diferença real.
+
+Nenhum modelo recusou perguntas do tema, e os dois recusaram as 5 perguntas fora do escopo.
 
 ### 5.3 TTS (10 respostas, 3 avaliadores, escala de 1 a 5)
 Os avaliadores receberam um formulário com os 20 áudios (10 de cada motor) em ordem embaralhada e com códigos neutros,
@@ -225,14 +205,6 @@ sem saber qual motor gerou cada um (avaliação cega). Cada áudio recebeu duas 
 Notas: média ± desvio padrão das 30 avaliações de cada motor (3 avaliadores × 10 áudios), fonte `testes/resultados/tts_resumo.csv`
 (notas individuais em `testes/tts/notas/` e `tts_notas_consolidadas.csv`). Tempo de síntese: média das 10 frases, em CPU
 (fonte: `testes/resultados/tts_tempos.csv`). O edge-tts depende da rede.
-
-> **Observações para o grupo (apagar antes de entregar)**
-> - Os 3 avaliadores, separadamente, deram ao Piper uma naturalidade média maior que ao edge-tts: 4,20 × 2,70, 3,70 × 3,30 e 4,00 × 3,00.
-> - Clareza: o Piper recebeu 5 nas 30 avaliações. O edge-tts recebeu 4 três vezes (frases 3, 4 e 5) e 5 nas outras.
-> - Menor naturalidade: edge-tts na frase 4 (2,00) e na frase 8 (2,33). Maior: Piper na frase 1 (5,00) e na frase 4 (4,67).
-> - A mesma frase 4 teve a melhor nota no Piper (4,67) e a pior no edge-tts (2,00).
-> - A avaliação foi cega: os avaliadores não sabiam qual motor gerou cada áudio (gabarito em `testes/tts/gabarito_audios.csv`).
-> - O Piper foi, em média, 8,5 vezes mais rápido que o edge-tts (0,32 s × 2,72 s). O pior caso foi 0,79 s no Piper e 4,70 s no edge-tts.
 
 ### 5.4 Ponta a ponta (10 conversas, 3 turnos cada)
 | Etapa | Média (s) | Mediana (s) | p95 (s) |
@@ -252,17 +224,10 @@ fluxo completo, e não a qualidade da transcrição, avaliada com vozes humanas 
 (edge-tts Francisca, conversas ímpares) e uma masculina (edge-tts Antonio, conversas pares). Nas conversas 2, 6 e 8 a voz
 masculina do edge-tts não respondeu e o script usou o Piper (faber, masculina) no lugar. Turnos com voz humana: 0 de 30.
 
-> **Observações para o grupo (apagar antes de entregar)**
-> - Nenhum dos 30 turnos passou de 6 s; o maior foi 3,65 s (conversa 1, turno 1).
-> - A etapa mais lenta foi o STT em CPU: 2,17 s de média, cerca de 72% do total (3,03 s).
-> - O LLM levou 0,51 s de média neste teste, bem menos que os 4,46 s do 120b na avaliação da seção 5.2. As duas medições usam o mesmo modelo, mas foram feitas em horários diferentes e com perguntas diferentes. A latência da Groq varia com a carga do serviço.
-> - Erros de transcrição na fala sintética: "E se eles tiver com fio solto?" (C3T2), "Jogar um entulho..." (C4T1), "dor de cadeça" (C9T3), "Tenho um carro abandonado na minha rua meses" (C10T1) e "E se forma moto." (C10T3).
-> - 2 dos 30 turnos dispararam o guardrail nível 3; nenhum disparou os níveis 1 ou 2.
-
 O total é medido da chegada do áudio até o arquivo de resposta ficar pronto para tocar. Antes da medição, cada modelo roda uma
 inferência de aquecimento, porque a primeira inferência (carregamento do modelo) é bem mais lenta e inflaria o primeiro turno de cada sessão.
 As etapas locais (STT, RAG, adaptação e TTS) foram medidas em CPU, sem GPU; numa GPU o STT, que é a etapa local mais pesada, seria mais rápido.
-Meta do PRD: menos de 6 s. [atingida / não atingida, e por quê]
+Meta do PRD: menos de 6 s. **Atingida.** A média foi de 3,03 s, o p95 ficou em 3,47 s e o pior turno foi de 3,65 s — todos bem abaixo do limite. O gargalo é o STT em CPU, que levou 2,17 s de média, cerca de 72% do tempo total; o LLM respondeu em 0,51 s neste teste. Vale notar que a fala do cidadão nas conversas foi sintética; no vídeo de demonstração, com voz humana real, o turno sobre água levou cerca de 5 s, ainda dentro da meta. Para reduzir ainda mais a latência, as principais alavancas são GPU (que aceleraria o STT, a etapa mais pesada) e streaming (que permitiria começar a tocar a resposta antes de ela estar completa).
 
 ### 5.5 Testes automatizados
 O guardrail, a adaptação para fala, o cliente do LLM e o orquestrador têm 102 casos de teste automatizados (`pytest testes/unitarios`). Os casos do guardrail
@@ -322,13 +287,11 @@ SP156 quando a base não cobre a pergunta. A tela mostra as fontes de cada respo
 | B | masculina, 20 anos, paulista | 7 (2 com ruído) | 11,67% | 6,67% |
 | C | feminina, 50 anos, paulista | 6 (1 com ruído) | 1,92% | 0,00% |
 
-> **Observações para o grupo (apagar antes de entregar)**
-> - O falante B teve o maior WER nos dois modelos. Quase todo esse erro vem de um único áudio, o stt_17 (com ruído). Com tão poucos áudios por pessoa, um áudio ruim muda bastante a média.
-> - A falante C, a única mulher e a mais velha, teve o menor WER (0,00% no medium). Mas ela gravou só 1 áudio com ruído, contra 2 de A e 2 de B.
-> - Os três falantes são paulistas: não há variação de sotaque regional na amostra.
-[Discutir: diferença entre vozes, efeito do ruído, palavras do domínio que mais erraram (ex.: siglas, "boca de lobo").
-Com 3 vozes não é possível generalizar; um teste real precisaria de mais falantes idosos, sotaques de outras regiões e
-pessoas com alterações de fala.]
+O falante B teve o pior resultado (11,67% no small), mas quase todo o erro vem de um único áudio com ruído, o stt_17. Com apenas 7 áudios por pessoa, um único áudio ruim distorce bastante a média. A falante C, a única mulher e a mais velha, teve o menor WER (1,92% no small e 0,00% no medium), mas gravou só 1 áudio com ruído, contra 2 de cada um dos outros falantes — a comparação, portanto, não é justa.
+
+O fator que mais pesa no WER é o ruído de fundo, não o perfil da voz: com o small, o WER vai de 2,24% nos áudios limpos para 14,89% nos áudios com ruído. As palavras do domínio — SP156, Sabesp, boca de lobo e entulho — foram transcritas corretamente pelos dois modelos, o que confirma o valor do `initial_prompt` com vocabulário especializado.
+
+Limite do teste: a amostra tem apenas 3 vozes, todas de falantes paulistas e sem idosos acima de 60 anos — justamente o perfil da persona Dona Cida. Com essa amostra não é possível generalizar; um teste mais representativo precisaria de mais falantes, com idades variadas, sotaques de outras regiões e, idealmente, pessoas com alterações de fala.
 
 ## 7. Limitações
 - Base pequena e parcialmente validada; responsabilidades podem mudar.
@@ -339,6 +302,9 @@ pessoas com alterações de fala.]
 - Guardrail por regras pode deixar passar frases não previstas e disparar em frases ambíguas; os testes automatizados reduzem, mas não eliminam, esse risco (a camada LLM do guardrail fica na disciplina de GenAI).
 - Poucas vozes no teste de STT; avaliação do TTS com poucos avaliadores.
 - Correção automática do LLM por palavras-chave é aproximada e precisa de revisão humana.
+- Compatibilidade de navegador: nos testes, o Brave entregava o áudio do microfone completamente mudo (−100 dB), mesmo com o
+  microfone funcionando no Windows; no Chrome a gravação funcionou. O app passou a medir o volume de cada gravação e a avisar
+  quando ela chega sem som, em vez de responder apenas "não entendi".
 
 ## 8. Melhorias futuras
 - Streaming de STT, LLM e TTS para começar a falar em menos de 2 s.
@@ -363,13 +329,15 @@ pessoas com alterações de fala.]
 
 ---
 
-## Apêndice A: roteiro do vídeo (até 5 min)
-1. **(0:00 a 0:40)** Apresentação: problema, Dona Cida, ODS 11.
-2. **(0:40 a 1:10)** Tela de consentimento e aceite.
-3. **(1:10 a 3:00)** Conversa real por voz, mostrando transcrição, resposta, fontes e latência na tela:
-   - Turno 1: "Tem um buraco enorme na minha rua."
-   - Turno 2 (continuação): "E como eu faço para registrar isso?"
-   - Turno 3 (recusa): "Você sabe me passar uma receita de bolo?"
-   - Extra: "Estou sentindo cheiro de gás na rua" para mostrar o guardrail.
-4. **(3:00 a 4:00)** Upload de um arquivo de áudio e tabelas de resultados (WER, LLM, TTS, latência).
-5. **(4:00 a 5:00)** LGPD, limitações e próximos passos.
+## Apêndice A: roteiro do vídeo
+Vídeo: https://youtu.be/Lbp7k8t4Fzs (gravado no Chrome, com microfone de headset, na máquina descrita na seção 3).
+
+1. **Apresentação:** integrantes, o *Quem Resolve?*, a persona Dona Cida e o ODS 11.
+2. **Consentimento:** o botão "Ouvir o aviso" toca o aviso falado; depois, "Concordo e começar".
+3. **Conversa real por voz**, com transcrição, resposta em texto, fontes e latência na tela:
+   - Turno 1: "Está vazando muita água na calçada da minha rua." → Sabesp, 0800 055 0195, WhatsApp e Defesa Civil 199.
+   - Turno 2 (continuação): "Funciona de madrugada também?" → responde sobre a Sabesp sem que ela seja citada na pergunta.
+   - Turno 3 (recusa): "Você sabe me passar uma receita de bolo?" → recusa por estar fora do tema.
+   - Turno 4 (guardrail nível 1): "Estou sentindo um cheiro forte de gás na rua." → resposta fixa, sem LLM, com a emergência da Comgás e o 193.
+4. **Upload de arquivo de áudio:** semáforo apagado → CET, registro pelo SP156.
+5. **LGPD, limitações e próximos passos.**
